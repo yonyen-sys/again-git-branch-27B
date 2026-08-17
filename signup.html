@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign In</title>
+<title>Sign Up</title>
 <style>
   * {
     box-sizing: border-box;
@@ -71,20 +71,30 @@
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
   }
 
+  .field small {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #9ca3af;
+  }
+
   .options {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 22px;
     font-size: 13px;
   }
 
   .options label {
     display: flex;
-    align-items: center;
-    gap: 6px;
+    align-items: flex-start;
+    gap: 8px;
     color: #4b5563;
     cursor: pointer;
+  }
+
+  .options input[type="checkbox"] {
+    margin-top: 2px;
   }
 
   .options a {
@@ -134,10 +144,15 @@
 <body>
 
   <div class="card">
-    <h1>Welcome back</h1>
-    <p class="subtitle">Sign in to continue</p>
+    <h1>Create account</h1>
+    <p class="subtitle">Sign up to get started</p>
 
     <form action="#" method="post">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+      </div>
+
       <div class="field">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="you@example.com" required>
@@ -145,21 +160,26 @@
 
       <div class="field">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <input type="password" id="password" name="password" placeholder="Create a password" minlength="8" required>
+        <small>Must be at least 8 characters</small>
+      </div>
+
+      <div class="field">
+        <label for="confirm-password">Confirm password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" minlength="8" required>
       </div>
 
       <div class="options">
         <label>
-          <input type="checkbox" name="remember">
-          Remember me
+          <input type="checkbox" name="terms" required>
+          I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
         </label>
-        <a href="#">Forgot password?</a>
       </div>
 
-      <button type="submit" class="submit">Sign In</button>
+      <button type="submit" class="submit">Sign Up</button>
     </form>
 
-    <p class="footer-text">Don't have an account? <a href="signup.html">Sign up</a></p>
+    <p class="footer-text">Already have an account? <a href="index.html">Sign in</a></p>
   </div>
 
 </body>
